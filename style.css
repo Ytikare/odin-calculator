@@ -16,3 +16,11 @@ body {
     margin: auto;
     padding: 10px;
 }
+
+.display > input {
+    text-align: center;
+    font-size: 28px;
+    background-color: rgb(255, 242, 220);
+    border: solid 10px rgb(255, 211, 131);
+    border-radius: 25px;
+}
