@@ -2,6 +2,7 @@ const numberButtonsContainer = document.querySelector('.number-buttons');
 const operandButtons = document.querySelectorAll('.operand-buttons > .row > .operand');
 const calcDisplay = document.querySelector('.display > input');
 const solveButton = document.getElementById('=');
+const errorMessageParagraph = document.querySelector('.error');
 
 numberButtonsContainer.addEventListener('click', e => {
     let target = e.target;
@@ -33,6 +34,12 @@ function solve(expression) {
         let result = operate(num1, num2, operand);
 
         calcDisplay.value = result;
+
+        if (errorMessageParagraph.classList.contains('hidden') == false) {
+            errorMessageParagraph.classList.add('hidden');
+        }
+    } else if (parts.length == 2) {
+        errorMessageParagraph.classList.remove('hidden');
     }
 }
 
