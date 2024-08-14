@@ -61,3 +61,13 @@ button {
     border-radius: 100px;
     background-color: rgb(255, 242, 220);
 }
+
+.error {
+    font-size: 16px;
+    text-align: center;
+    color: red;
+}
+
+.hidden {
+    display: none;
+}
