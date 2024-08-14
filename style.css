@@ -11,8 +11,8 @@ body {
     font-size: 28px;
     border: solid 2px rgb(167, 108, 0);
     border-radius: 40px;
-    background-color: rgb(255, 166, 0);
-    max-width: 500px;
+    background-color: rgb(253, 189, 70);
+    max-width: 400px;
     margin: auto;
     padding: 10px;
 }
@@ -23,4 +23,27 @@ body {
     background-color: rgb(255, 242, 220);
     border: solid 10px rgb(255, 211, 131);
     border-radius: 25px;
+    color: black;
+}
+
+div.buttons {
+    display: flex;
+    gap: 20px;
+    align-items: stretch;
+}
+
+.number-buttons{
+    margin-top: 10px;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px
+}
+
+.operand-buttons {
+    margin-top: 10px;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px
 }
