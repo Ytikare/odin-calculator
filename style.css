@@ -47,3 +47,17 @@ div.buttons {
     flex-direction: column;
     gap: 10px
 }
+
+.row {
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    font-size: 100%;
+    padding:  10px 20px;
+    flex: 1;
+    border: solid 2px rgb(199, 126, 0);
+    border-radius: 100px;
+    background-color: rgb(255, 242, 220);
+}
