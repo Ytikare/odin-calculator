@@ -38,4 +38,3 @@ function operate(operatorOne, operatorTwo, operand) {
 
     return result;
 }
-
