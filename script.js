@@ -13,9 +13,24 @@ numberButtonsContainer.addEventListener('click', e => {
 
 operandButtons.forEach(el => {
     el.addEventListener('click' , e => {
-        calcDisplay.value += e.target.id
+        calcDisplay.value += ` ${e.target.id} `;
     })
 });
+
+
+function solve(expression) {
+    let parts = expression.split(' ');
+
+    if (parts.length == 3) {
+        let num1 = Number(parts[0]);
+        let num2 = Number(parts[2]);
+        let operand = parts[1]
+
+        let result = operate(num1, num2, operand);
+
+        calcDisplay.value = result;
+    }
+}
 
 function add(num1, num2) {
     return num1 + num2;
