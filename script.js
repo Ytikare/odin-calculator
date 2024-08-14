@@ -17,9 +17,13 @@ operandButtons.forEach(el => {
     })
 });
 
+solveButton.addEventListener('click', e => {
+    solve(calcDisplay.value);
+});
 
 function solve(expression) {
-    let parts = expression.split(' ');
+    //.filter() here remover empty entires
+    let parts = expression.split(' ').filter(el => el);
 
     if (parts.length == 3) {
         let num1 = Number(parts[0]);
