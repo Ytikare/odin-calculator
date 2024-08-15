@@ -5,6 +5,19 @@ const solveButton = document.getElementById('=');
 const errorMessageParagraph = document.querySelector('.error');
 const clearButton = document.querySelector('#clear');
 
+document.querySelector('.buttons').addEventListener('mouseover', e => {
+    let target = e.target;
+    if (target.localName == 'button') {
+        target.classList.add('hover');
+    }
+})
+
+document.querySelector('.buttons').addEventListener('mouseout', e => {
+    let target = e.target;
+    if (target.localName == 'button') {
+        target.classList.remove('hover');
+    }
+})
 
 numberButtonsContainer.addEventListener('click', e => {
     let target = e.target;
