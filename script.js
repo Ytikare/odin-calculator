@@ -3,6 +3,7 @@ const operandButtons = document.querySelectorAll('.operand-buttons > .row > .ope
 const calcDisplay = document.querySelector('.display > input');
 const solveButton = document.getElementById('=');
 const errorMessageParagraph = document.querySelector('.error');
+const clearButton = document.querySelector('#clear');
 
 numberButtonsContainer.addEventListener('click', e => {
     let target = e.target;
@@ -42,6 +43,10 @@ function solve(expression) {
         errorMessageParagraph.classList.remove('hidden');
     }
 }
+
+clearButton.addEventListener('click', e => {
+    calcDisplay.value = '';
+})
 
 function add(num1, num2) {
     return num1 + num2;
