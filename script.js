@@ -5,11 +5,12 @@ const solveButton = document.getElementById('=');
 const errorMessageParagraph = document.querySelector('.error');
 const clearButton = document.querySelector('#clear');
 
+
 numberButtonsContainer.addEventListener('click', e => {
     let target = e.target;
 
     if (target.localName == 'button') {
-        calcDisplay.value += target.id;
+        addToCalcDisplay(target.id);
     }
 });
 
@@ -89,5 +90,8 @@ function operate(operatorOne, operatorTwo, operand) {
     return result;
 }
 
+function addToCalcDisplay(expression) {
+    calcDisplay.value += expression;
+}
 
 
