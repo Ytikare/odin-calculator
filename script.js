@@ -15,8 +15,12 @@ numberButtonsContainer.addEventListener('click', e => {
 });
 
 operandButtons.forEach(el => {
-    el.addEventListener('click' , e => {
-        calcDisplay.value += ` ${e.target.id} `;
+    el.addEventListener('click', e => {
+        if (checkIfExpressionContainsOperands(calcDisplay.value)) {
+            solve(calcDisplay.value);
+        }
+        addToCalcDisplay(` ${e.target.id} `);
+
     })
 });
 
@@ -28,20 +32,25 @@ function solve(expression) {
     //.filter() here remover empty entires
     let parts = expression.split(' ').filter(el => el);
 
-    if (parts.length == 3) {
-        let num1 = Number(parts[0]);
-        let num2 = Number(parts[2]);
-        let operand = parts[1]
+    let result;
 
-        let result = operate(num1, num2, operand);
+    if (parts.length == 4) {
 
-        calcDisplay.value = result;
+        result = `${calculateInput(parts[0], parts[2], parts[1])} ${parts[3]}`;
 
-        if (errorMessageParagraph.classList.contains('hidden') == false) {
-            errorMessageParagraph.classList.add('hidden');
-        }
+        errorMessageParagraph.classList.add('hidden');
+
+    } else if (parts.length == 3) {
+        result = calculateInput(parts[0], parts[2], parts[1]);
+
+        errorMessageParagraph.classList.add('hidden');
     } else if (parts.length == 2) {
         errorMessageParagraph.classList.remove('hidden');
+    }
+
+
+    if (result) {
+        calcDisplay.value = result;
     }
 }
 
@@ -65,8 +74,12 @@ function divide(num1, num2) {
     return num1 / num2;
 }
 
+function calculateInput(textNum1, textNum2, operand) {
+    let num1 = Number(textNum1);
+    let num2 = Number(textNum2);
 
-let numberOne, numberTwo, operator, result;
+    return operate(num1, num2, operand);
+}
 
 function operate(operatorOne, operatorTwo, operand) {
     switch (operand) {
@@ -94,4 +107,6 @@ function addToCalcDisplay(expression) {
     calcDisplay.value += expression;
 }
 
-
+function checkIfExpressionContainsOperands(expressions) {
+    return expressions.match(/\+*-*\/*\**/g).filter(n => n).length != 0;
+}
