@@ -62,6 +62,10 @@ button {
     background-color: rgb(255, 242, 220);
 }
 
+button:hover {
+    cursor: pointer;
+}
+
 .error {
     font-size: 16px;
     text-align: center;
