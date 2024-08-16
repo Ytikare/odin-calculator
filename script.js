@@ -4,6 +4,7 @@ const calcDisplay = document.querySelector('.display > input');
 const solveButton = document.getElementById('=');
 const errorMessageParagraph = document.querySelector('.error');
 const clearButton = document.querySelector('#clear');
+const decimalSymbolButton = document.querySelector('.dot');
 
 document.querySelector('.buttons').addEventListener('mouseover', e => {
     let target = e.target;
@@ -33,13 +34,25 @@ operandButtons.forEach(el => {
             solve(calcDisplay.value);
         }
         addToCalcDisplay(` ${e.target.id} `);
-
+        enableButton(decimalSymbolButton);
     })
 });
 
 solveButton.addEventListener('click', e => {
     solve(calcDisplay.value);
+    enableButton(decimalSymbolButton);
 });
+
+decimalSymbolButton.addEventListener('click', e => {
+    e.stopPropagation();
+    addToCalcDisplay(e.target.id);
+    e.target.disabled = true;
+})
+
+clearButton.addEventListener('click', e => {
+    calcDisplay.value = '';
+    enableButton(decimalSymbolButton);
+})
 
 function solve(expression) {
     //.filter() here remover empty entires
@@ -50,7 +63,6 @@ function solve(expression) {
     if (parts.length == 4) {
 
         result = `${calculateInput(parts[0], parts[2], parts[1])} ${parts[3]}`;
-
         errorMessageParagraph.classList.add('hidden');
 
     } else if (parts.length == 3) {
@@ -66,10 +78,6 @@ function solve(expression) {
         calcDisplay.value = result;
     }
 }
-
-clearButton.addEventListener('click', e => {
-    calcDisplay.value = '';
-})
 
 function add(num1, num2) {
     return num1 + num2;
@@ -122,4 +130,8 @@ function addToCalcDisplay(expression) {
 
 function checkIfExpressionContainsOperands(expressions) {
     return expressions.match(/\+*-*\/*\**/g).filter(n => n).length != 0;
+}
+
+function enableButton(button) {
+    button.disabled = false;
 }
