@@ -6,6 +6,8 @@ const errorMessageParagraph = document.querySelector('.error');
 const clearButton = document.querySelector('#clear');
 const decimalSymbolButton = document.querySelector('.dot');
 const backspaceButton = document.getElementById('backspace');
+const guideMarker = document.querySelector('.marker');
+const instructionsSection = document.querySelector('.instructions');
 
 document.querySelector('.buttons').addEventListener('mouseover', e => {
     let target = e.target;
@@ -68,6 +70,14 @@ backspaceButton.addEventListener('click', () => {
         calcDisplay.value = displayText.substring(0, displayLength - 1);
         enableButton(decimalSymbolButton);
     }
+})
+
+guideMarker.addEventListener('mouseover', () =>{
+    instructionsSection.classList.remove('hidden');
+})
+
+guideMarker.addEventListener('mouseout', () => {
+    instructionsSection.classList.add('hidden');
 })
 
 function solve(expression) {
