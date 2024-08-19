@@ -1,3 +1,5 @@
+// Selecting needed elements
+
 const numberButtonsContainer = document.querySelector('.number-buttons');
 const operandButtons = document.querySelectorAll('.operand-buttons > .row > .operand');
 const calcDisplay = document.querySelector('.display > input');
@@ -8,6 +10,8 @@ const decimalSymbolButton = document.querySelector('.dot');
 const backspaceButton = document.getElementById('backspace');
 const guideMarker = document.querySelector('.marker');
 const instructionsSection = document.querySelector('.instructions');
+
+//Adding events to elements
 
 document.querySelector('.buttons').addEventListener('mouseover', e => {
     let target = e.target;
@@ -79,6 +83,8 @@ guideMarker.addEventListener('mouseover', () =>{
 guideMarker.addEventListener('mouseout', () => {
     instructionsSection.classList.add('hidden');
 })
+
+//Custom functions
 
 function solve(expression) {
     //.filter() here remover empty entires
