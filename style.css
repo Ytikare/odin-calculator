@@ -86,3 +86,16 @@ button:hover {
 .hidden {
     display: none;
 }
+
+.marker {
+    text-align: center;
+    background-color: rgb(255, 242, 220);
+    color: black;
+    margin: auto;
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: solid 2px rgb(143, 93, 0);
+    border-radius: 100px;
+    max-width: max-content;
+    cursor: default;
+}
